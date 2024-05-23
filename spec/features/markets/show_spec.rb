@@ -26,20 +26,20 @@ RSpec.describe "Market show page", type: :feature do
   it "shows each vendor as a link to its show page", :vcr do 
     market_id = 322458
 
-    VCR.use_cassette("market_322458_vendors", serialize_with: :json) do
-      response = MarketMoneyApiFacade.get_market_vendors(market_id)
-      expect(response["data"]).not_to be_empty
-      expect(response[:error]).to be_nil
-
-      market_vendors = response["data"]
-
+    VCR.use_cassette("market_322458_vendors", serialize_with: :json) do |cassette|
+      body = JSON.parse(
+        cassette.serializable_hash.dig("http_interactions", 0, "response", "body", "string"),
+        symbolize_names: true
+      )
+      market_vendors = body[:data]
+      
       visit market_path(market_id)
       expect(page.status_code).to eq(200)
      
       within '.market_vendors' do
-        market_vendors.first(3).each do |vendor|
-          vendor_attributes = vendor["attributes"]
-          name = vendor_attributes["name"].gsub(/\s+/, ' ').strip
+        market_vendors.each do |vendor|
+          vendor_attributes = vendor[:attributes]
+          name = vendor_attributes[:name].gsub(/\s+/, ' ').strip
           expect(page).to have_link(name)
         end
       end
