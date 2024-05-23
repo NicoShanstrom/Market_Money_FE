@@ -6,7 +6,7 @@ class MarketsController < ApplicationController
   end
 
   def show
-    @market = MarketMoneyApiFacade.get_market(id)
+    @market = MarketMoneyApiFacade.get_market(params[:id])
   end
 
 end

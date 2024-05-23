@@ -30,10 +30,11 @@ RSpec.describe "Market index page", type: :feature do
         end
 
         first_market_name = markets.first[:attributes][:name].gsub(/\s+/, ' ').strip
-        click_on first_market_name
-
         first_market_id = markets.first[:id]
-        expect(current_path).to eq(market_path(first_market_id))
+        VCR.use_cassette("market_show_data_#{first_market_id}", serialize_with: :json) do
+          click_on first_market_name
+          expect(current_path).to eq(market_path(first_market_id))
+        end
       end
     end 
   end
