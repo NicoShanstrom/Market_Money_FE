@@ -7,6 +7,7 @@ class MarketsController < ApplicationController
 
   def show
     @market = MarketMoneyApiFacade.get_market(params[:id])
+    @market_vendors = MarketMoneyApiFacade.get_market_vendors(params[:id])
+    # require 'pry'; binding.pry
   end
-
 end

@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   scope :api do
     scope :v0 do
-      resources :markets, only: [:index, :show] 
+      resources :markets, only: [:index, :show] do
+        resources :vendors, only: [:index], controller: 'market_vendors'
+      end
     end
   end
   # Defines the root path route ("/")

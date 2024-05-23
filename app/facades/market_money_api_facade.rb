@@ -10,6 +10,11 @@ class MarketMoneyApiFacade
     handle_response(response)
   end
 
+  def self.get_market_vendors(market_id)
+    response = MarketMoneyApi.connection.get("/api/v0/markets/#{market_id}/vendors")
+    handle_response(response)
+  end
+
   private
 
   def self.handle_response(response)

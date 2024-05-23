@@ -18,6 +18,7 @@ RSpec.describe "Market index page", type: :feature do
         expect(page).to have_selector('li.market')
 
         markets.first(3).each do |market_data|
+          require 'pry'; binding.pry
           market_attributes = market_data[:attributes]
           
           name = market_attributes[:name].gsub(/\s+/, ' ').strip
