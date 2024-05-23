@@ -271,50 +271,6 @@
           null
         ]
       },
-      "/Users/nicoshanstrom/Turing/3mod/challenges/market_money_fe/app/facades/market_money_api_facade.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          2,
-          2,
-          null,
-          null,
-          1,
-          null,
-          1,
-          2,
-          2,
-          null,
-          0,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/nicoshanstrom/Turing/3mod/challenges/market_money_fe/app/services/market_money_api.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          2,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null
-        ]
-      },
       "/Users/nicoshanstrom/Turing/3mod/challenges/market_money_fe/app/controllers/markets_controller.rb": {
         "lines": [
           1,
@@ -332,8 +288,52 @@
           1,
           null
         ]
+      },
+      "/Users/nicoshanstrom/Turing/3mod/challenges/market_money_fe/app/facades/market_money_api_facade.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/nicoshanstrom/Turing/3mod/challenges/market_money_fe/app/services/market_money_api.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1716437102
+    "timestamp": 1716438584
   }
 }
