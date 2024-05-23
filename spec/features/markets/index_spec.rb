@@ -18,24 +18,22 @@ RSpec.describe "Market index page", type: :feature do
         expect(page).to have_selector('li.market')
 
         markets.first(3).each do |market_data|
-          market_attributes = market_data[:attributes]
-          
-          name = market_attributes[:name].gsub(/\s+/, ' ').strip
-          city = market_attributes[:city].to_s.gsub(/\s+/, ' ').strip
-          state = market_attributes[:state].gsub(/\s+/, ' ').strip
+          name = market_data[:attributes][:name].gsub(/\s+/, ' ').strip
+          city = market_data[:attributes][:city].to_s.gsub(/\s+/, ' ').strip
+          state = market_data[:attributes][:state].gsub(/\s+/, ' ').strip
           
           expect(page).to have_link(name)
           expect(page).to have_content(city)
           expect(page).to have_content(state)
         end
-
         first_market_name = markets.first[:attributes][:name].gsub(/\s+/, ' ').strip
         first_market_id = markets.first[:id]
+        # require 'pry'; binding.pry
         VCR.use_cassette("market_show_data_#{first_market_id}", serialize_with: :json) do
-          click_on first_market_name
-          expect(current_path).to eq(market_path(first_market_id))
-        end
+        click_on first_market_name
+        expect(current_path).to eq(market_path(first_market_id))
       end
+    end
     end 
   end
 end

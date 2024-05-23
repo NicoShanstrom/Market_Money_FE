@@ -1,14 +1,14 @@
-<h1><%= @market["data"]["attributes"]["name"] %> Vendors!</h1>
-<h3><%= @market["data"]["attributes"]["street"] %></h3>
-<h3><%= @market["data"]["attributes"]["city"] %>, <%= @market["data"]["attributes"]["state"] %> <%= @market["data"]["attributes"]["zip"] %></h3>
+<h1><%= @market.name %> Vendors!</h1>
+<h3><%= @market.street %></h3>
+<h3><%= @market.city %>, <%= @market.state %> <%= @market.zip %></h3>
 
 <p>Vendors at our Market:</p>
 
 <section class='market_vendors'>
   <ul>
-    <% @market_vendors["data"].each do |vendor| %>
+    <% @market_vendors.each do |vendor| %>
       <li>
-        <p>Name: <%= link_to vendor["attributes"]["name"].strip, market_path(vendor["id"]) %></p>
+        <p>Name: <%= link_to vendor.name.strip, market_path(vendor.id) %></p>
       </li>
     <% end %>
   </ul>

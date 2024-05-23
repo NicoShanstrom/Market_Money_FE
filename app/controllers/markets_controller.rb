@@ -1,13 +1,14 @@
 class MarketsController < ApplicationController
 
   def index
-    @markets = MarketMoneyApiFacade.get_markets
+    markets_data = MarketMoneyApiFacade.get_markets
     # require 'pry'; binding.pry
+    @markets = MarketService.build_markets(markets_data)
   end
 
   def show
-    @market = MarketMoneyApiFacade.get_market(params[:id])
-    @market_vendors = MarketMoneyApiFacade.get_market_vendors(params[:id])
+    @market = Market.new(MarketMoneyApiFacade.get_market(params[:id]))
+    @market_vendors = MarketVendorService.build_vendors(MarketMoneyApiFacade.get_market_vendors(params[:id]))
     # require 'pry'; binding.pry
   end
 end

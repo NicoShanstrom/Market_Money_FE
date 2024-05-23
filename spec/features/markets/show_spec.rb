@@ -9,9 +9,9 @@ RSpec.describe "Market show page", type: :feature do
         cassette.serializable_hash.dig("http_interactions", 0, "response", "body", "string"),
         symbolize_names: true
       )
-
       market_data = body[:data]
       market_id = market_data[:id]
+      
       visit market_path(market_id)
 
       expect(page.status_code).to eq(200)
