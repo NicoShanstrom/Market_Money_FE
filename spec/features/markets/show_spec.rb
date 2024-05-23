@@ -24,13 +24,16 @@ RSpec.describe "Market show page", type: :feature do
   end
 
   it "shows each vendor as a link to its show page", :vcr do 
+    market_id = 322458
+
     VCR.use_cassette("market_322458_vendors", serialize_with: :json) do
-      response = MarketMoneyApi.connection.get("/api/v0/markets/322458/vendors")
-      expect(response.status).to eq(200)
+      response = MarketMoneyApiFacade.get_market_vendors(market_id)
+      expect(response["data"]).not_to be_empty
+      expect(response[:error]).to be_nil
 
-      market_vendors = response.body["data"]
+      market_vendors = response["data"]
 
-      visit market_path(322458)
+      visit market_path(market_id)
       expect(page.status_code).to eq(200)
      
       within '.market_vendors' do

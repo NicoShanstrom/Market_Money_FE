@@ -9,6 +9,11 @@ class MarketMoneyApi
     end
   end
 
+  def self.get(endpoint)
+    response = connection.get(endpoint)
+    handle_response(response)
+  end
+  
   def self.handle_response(response)
     if response.success?
       response.body

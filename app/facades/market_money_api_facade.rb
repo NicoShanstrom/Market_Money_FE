@@ -1,27 +1,15 @@
 class MarketMoneyApiFacade
 
   def self.get_markets
-    response = MarketMoneyApi.connection.get('/api/v0/markets')
-    handle_response(response)
+    response = MarketMoneyApi.get('/api/v0/markets')
   end
 
   def self.get_market(id)
-    response = MarketMoneyApi.connection.get("/api/v0/markets/#{id}")
-    handle_response(response)
+    response = MarketMoneyApi.get("/api/v0/markets/#{id}")
   end
 
   def self.get_market_vendors(market_id)
-    response = MarketMoneyApi.connection.get("/api/v0/markets/#{market_id}/vendors")
-    handle_response(response)
+    response = MarketMoneyApi.get("/api/v0/markets/#{market_id}/vendors")
   end
 
-  private
-
-  def self.handle_response(response)
-    if response.success?
-      response.body
-    else
-      { error: response.status, message: response.body }
-    end
-  end
 end
