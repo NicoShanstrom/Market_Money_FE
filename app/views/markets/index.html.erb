@@ -1,0 +1,17 @@
+<p>
+<h1><strong>Markets</strong></h1>
+</p>
+<p>
+  <section class='markets'>
+    <ul>
+      <% @markets["data"].each do |market_data| %>
+        <% market_attributes = market_data["attributes"] %>
+        <li class="market">
+          <p>Name: <%= link_to market_attributes["name"].strip, market_path(market_data["id"]) %></p>
+          <p>City: <%= market_attributes["city"] %></p>
+          <p>State: <%= market_attributes["state"] %></p>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+</p>

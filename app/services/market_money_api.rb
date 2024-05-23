@@ -1,11 +1,11 @@
 class MarketMoneyApi
-  v0_base_url = "http://localhost:3000/api/v0"
+  @v0_base_url = "http://localhost:3000"
   
   def self.connection
-    @connection ||= Faraday.new(url: v0_base_url) do |conn|
+    @connection ||= Faraday.new(url: @v0_base_url) do |conn|
       conn.request :json
-      conn.response :json, content_type /\bjson$/ #dont have to use json.parse
-      conn.response :logger
+      conn.response :json, content_type: /\bjson$/ #dont have to use json.parse
+      # conn.response :logger
     end
   end
 
