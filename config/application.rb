@@ -22,6 +22,8 @@ module MarketMoneyFe
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
+    #autoload facade paths for controllers so you can use the facade in the controller and call the method
+    config.autoload_paths += %W(#{config.root}/app/facades)
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
