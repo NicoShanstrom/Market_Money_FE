@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "Market index page", type: :feature do
+  include ApplicationHelper
+
   it "Shows all markets with name as a link to its show page, city, state" do
     VCR.use_cassette("market_index_data", serialize_with: :json) do |cassette|
       visit markets_path
@@ -18,15 +20,15 @@ RSpec.describe "Market index page", type: :feature do
         expect(page).to have_selector('li.market')
 
         markets.first(3).each do |market_data|
-          name = market_data[:attributes][:name].gsub(/\s+/, ' ').strip
-          city = market_data[:attributes][:city].to_s.gsub(/\s+/, ' ').strip
-          state = market_data[:attributes][:state].gsub(/\s+/, ' ').strip
+          name = strip_whitespace(market_data[:attributes][:name])
+          city = strip_whitespace(market_data[:attributes][:city].to_s)
+          state = strip_whitespace(market_data[:attributes][:state])
           
           expect(page).to have_link(name)
           expect(page).to have_content(city)
           expect(page).to have_content(state)
         end
-        first_market_name = markets.first[:attributes][:name].gsub(/\s+/, ' ').strip
+        first_market_name = strip_whitespace(markets.first[:attributes][:name])
         first_market_id = markets.first[:id]
         # require 'pry'; binding.pry
         VCR.use_cassette("market_show_data_#{first_market_id}", serialize_with: :json) do

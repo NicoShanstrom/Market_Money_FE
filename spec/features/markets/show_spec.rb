@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Market show page", type: :feature do
-
+  include ApplicationHelper
   it "Shows market name and a readable address" do 
       VCR.use_cassette("market_show_data_322458", serialize_with: :json) do |cassette|
       
@@ -32,14 +32,14 @@ RSpec.describe "Market show page", type: :feature do
         symbolize_names: true
       )
       market_vendors = body[:data]
-      
+   
       visit market_path(market_id)
       expect(page.status_code).to eq(200)
      
       within '.market_vendors' do
         market_vendors.each do |vendor|
           vendor_attributes = vendor[:attributes]
-          name = vendor_attributes[:name].gsub(/\s+/, ' ').strip
+          name = strip_whitespace(vendor_attributes[:name])
           expect(page).to have_link(name)
         end
       end
