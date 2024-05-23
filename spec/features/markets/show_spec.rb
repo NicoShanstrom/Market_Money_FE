@@ -16,7 +16,7 @@ RSpec.describe "Market show page", type: :feature do
 
       expect(page.status_code).to eq(200)
       expect(page).to have_content(market_data[:attributes][:name])
-      expect(page).to have_content(market_data[:attributes][:street])
+      expect(page).to have_content(market_data[:attributes][:street].strip)
       expect(page).to have_content(market_data[:attributes][:city])
       expect(page).to have_content(market_data[:attributes][:state])
       expect(page).to have_content(market_data[:attributes][:zip])
