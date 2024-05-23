@@ -92,4 +92,5 @@ VCR.configure do |config|
   config.hook_into :webmock
   config.filter_sensitive_data('<TOMTOM_API_KEY>') { ENV['tomtom_api_key'] }
   config.configure_rspec_metadata!
+  config.allow_http_connections_when_no_cassette = false
 end
