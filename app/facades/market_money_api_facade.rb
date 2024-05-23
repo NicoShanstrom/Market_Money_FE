@@ -5,6 +5,11 @@ class MarketMoneyApiFacade
     handle_response(response)
   end
 
+  def self.get_market(id)
+    response = MarketMoneyApi.connection.get("/api/v0/markets/#{id}")
+    handle_response(response)
+  end
+
   private
 
   def self.handle_response(response)
