@@ -1,7 +1,7 @@
 class Market
   attr_reader :id, :name, :street, :city, :county, :state, :zip, :lat, :lon, :vendor_count
 
-   def initialize(data)
+  def initialize(data)
     if data.key?("attributes")
       initialize_from_attributes(data)
     else
@@ -10,7 +10,7 @@ class Market
   end
 
   private
-
+  #markets
   def initialize_from_attributes(data)
     @id = data["id"]
     @name = data["attributes"]["name"]
@@ -23,7 +23,7 @@ class Market
     @lon = data["attributes"]["lon"]
     @vendor_count = data["attributes"]["vendor_count"]
   end
-
+  #market
   def initialize_from_data(data)
     @id = data["data"]["id"]
     @name = data["data"]["attributes"]["name"]

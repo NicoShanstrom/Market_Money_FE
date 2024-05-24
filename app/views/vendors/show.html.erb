@@ -1,0 +1,11 @@
+<h1><strong><%= @vendor.name %></strong></h1>
+
+<h3><p>Contact Info:</p></h3>
+<section class='contact_info'>
+  <li>
+    <h3><p>Name: <%= @vendor.contact_name %></p></h3>
+    <h3><p>Phone: <%= @vendor.contact_phone %></p></h3>
+    <h3><p>Credit Accepted?: <%= boolean_yes_no(@vendor.credit_accepted) %></p></h3>
+    <h3><p>Description: <%= @vendor.description %></p></h3>
+  </li>
+</section>

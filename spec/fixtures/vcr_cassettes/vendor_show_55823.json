@@ -1,0 +1,148 @@
+{
+  "http_interactions": [
+    {
+      "request": {
+        "method": "get",
+        "uri": "http://localhost:3000/api/v0/markets/55823",
+        "body": {
+          "encoding": "US-ASCII",
+          "string": ""
+        },
+        "headers": {
+          "User-Agent": [
+            "Faraday v1.10.3"
+          ],
+          "Accept-Encoding": [
+            "gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+          ],
+          "Accept": [
+            "*/*"
+          ]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 404,
+          "message": "Not Found"
+        },
+        "headers": {
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Xss-Protection": [
+            "0"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Permitted-Cross-Domain-Policies": [
+            "none"
+          ],
+          "Referrer-Policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Vary": [
+            "Accept"
+          ],
+          "Cache-Control": [
+            "no-cache"
+          ],
+          "X-Request-Id": [
+            "a5d74c6c-323c-4484-905f-3aaf9911d214"
+          ],
+          "X-Runtime": [
+            "0.029197"
+          ],
+          "Server-Timing": [
+            "start_processing.action_controller;dur=0.00, sql.active_record;dur=12.80, instantiation.active_record;dur=0.12, process_action.action_controller;dur=15.58"
+          ],
+          "Content-Length": [
+            "62"
+          ]
+        },
+        "body": {
+          "encoding": "UTF-8",
+          "string": "{\"errors\":[{\"detail\":\"Couldn't find Market with 'id'=55823\"}]}"
+        }
+      },
+      "recorded_at": "Fri, 24 May 2024 00:50:38 GMT"
+    },
+    {
+      "request": {
+        "method": "get",
+        "uri": "http://localhost:3000/api/v0/vendors/55823",
+        "body": {
+          "encoding": "US-ASCII",
+          "string": ""
+        },
+        "headers": {
+          "User-Agent": [
+            "Faraday v1.10.3"
+          ],
+          "Accept-Encoding": [
+            "gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+          ],
+          "Accept": [
+            "*/*"
+          ]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Xss-Protection": [
+            "0"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Permitted-Cross-Domain-Policies": [
+            "none"
+          ],
+          "Referrer-Policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Vary": [
+            "Accept"
+          ],
+          "Etag": [
+            "W/\"52a3a848e065d8df4195850a9c1f5377\""
+          ],
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "X-Request-Id": [
+            "6c2aadcd-df39-43a8-9fce-126d9a0cecdd"
+          ],
+          "X-Runtime": [
+            "0.077898"
+          ],
+          "Server-Timing": [
+            "start_processing.action_controller;dur=0.00, sql.active_record;dur=2.56, instantiation.active_record;dur=1.07, process_action.action_controller;dur=14.96"
+          ],
+          "Content-Length": [
+            "262"
+          ]
+        },
+        "body": {
+          "encoding": "UTF-8",
+          "string": "{\"data\":{\"id\":\"55823\",\"type\":\"vendor\",\"attributes\":{\"name\":\"The Charcuterie Corner\",\"description\":\"Vendor selling a variety of artisanal cured meats and sausages.\",\"contact_name\":\"Claudie Langworth III\",\"contact_phone\":\"1-147-179-9747\",\"credit_accepted\":false}}}"
+        }
+      },
+      "recorded_at": "Fri, 24 May 2024 00:54:01 GMT"
+    }
+  ],
+  "recorded_with": "VCR 6.2.0"
+}
